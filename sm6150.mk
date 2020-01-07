@@ -242,6 +242,10 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
 
+# ParanoidDoze
+PRODUCT_PACKAGES += \
+    ParanoidDoze
+
 # Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
