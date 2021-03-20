@@ -62,6 +62,9 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 # FM
 BOARD_HAVE_QCOM_FM := true
 
+# Gestures
+TARGET_TAP_TO_WAKE_EVENT_NODE  := "/dev/input/event3"
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 4.0
@@ -96,9 +99,6 @@ TARGET_KERNEL_APPEND_DTB := true
 
 # Media
 TARGET_USES_ION := true
-
-# Power
-TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
