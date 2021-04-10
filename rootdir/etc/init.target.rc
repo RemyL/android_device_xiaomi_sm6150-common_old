@@ -162,3 +162,6 @@ service vendor.nv_mac /vendor/bin/nv_mac
     user system
     group system inet net_admin wifi net_raw
     oneshot
+
+on post-fs && property:ro.boot.hwname=violet
+    mount none /vendor/lib64/liboemcrypto-violet.so /vendor/lib64/liboemcrypto.so bind
