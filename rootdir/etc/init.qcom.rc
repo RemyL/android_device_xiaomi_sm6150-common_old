@@ -55,13 +55,6 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
-on late-init
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start vendor.hwcomposer-2-4
-    start vendor.configstore-hal
-    start vendor.qti.hardware.display.allocator
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -216,6 +209,9 @@ on post-fs-data
     mkdir /data/vendor/perfd 2770 root system
     rm /data/vendor/perfd/default_values
 
+    #Create IOP daemon related dirs
+    mkdir /data/vendor/iop 0700 root system
+
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
     chown radio radio /data/vendor/radio/copy_complete
@@ -231,6 +227,9 @@ on post-fs-data
 
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
+
+    # Create dir for dolby
+    mkdir /data/vendor/dolby 0770 media media
 
     setprop vold.post_fs_data_done 1
 
